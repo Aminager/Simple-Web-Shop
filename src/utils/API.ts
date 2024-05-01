@@ -13,7 +13,6 @@ export  function getAllProducts () {
 
 export function getPageinatedProducts(page: number = 1, limit: number = DEFAULT_PRODUCT_LIMIT) {
     const url = `https://dummyjson.com/products?limit=${limit}&skip=${page == 1 ? 0 : (page - 1) * limit}`
-    console.log(url)
     const response = fetch(url)
     .then(res => res.json())
     .then(res => res.products)
@@ -32,6 +31,5 @@ export function getProduct(id: number) {
         console.log(err)
         return []
     });
-    console.log(response)
     return response
 }
